@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Wall
   - Target
+  - Snake Body
   layers:
   - Default
   - TransparentFX
