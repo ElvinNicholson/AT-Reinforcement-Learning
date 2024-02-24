@@ -21,7 +21,7 @@ public class SnakeController : MonoBehaviour
 
     private void Update()
     {
-        transform.position += transform.forward * moveSpeed * Time.deltaTime;
+        transform.localPosition += transform.forward * moveSpeed * Time.deltaTime;
 
         float turnDir = Input.GetAxis("Horizontal");
         transform.Rotate(Vector3.up, turnDir * turnSpeed * Time.deltaTime);
@@ -29,15 +29,15 @@ public class SnakeController : MonoBehaviour
         for (int i = 0; i < bodyParts.Count; i++)
         {
             Vector3 movePos = posHistory[Mathf.Min(i * bodyGap, posHistory.Count - 1)];
-            Vector3 moveDir = movePos - bodyParts[i].transform.position;
-            bodyParts[i].transform.position += moveDir * moveSpeed * Time.deltaTime;
+            Vector3 moveDir = movePos - bodyParts[i].transform.localPosition;
+            bodyParts[i].transform.localPosition += moveDir * moveSpeed * Time.deltaTime;
             bodyParts[i].transform.LookAt(movePos);
         }
     }
 
     private void FixedUpdate()
     {
-        posHistory.Insert(0, transform.position);
+        posHistory.Insert(0, transform.localPosition);
         posHistory = posHistory.GetRange(0, Mathf.Min(maxListSize, posHistory.Count));
     }
 
@@ -47,12 +47,12 @@ public class SnakeController : MonoBehaviour
 
         if (bodyParts.Count > 0)
         {
-            body.transform.position = bodyParts[bodyParts.Count - 1].transform.position;
+            body.transform.localPosition = bodyParts[bodyParts.Count - 1].transform.localPosition;
         }
         else
         {
             // First segment
-            body.transform.position = transform.position;
+            body.transform.localPosition = transform.localPosition;
             body.transform.tag = "Untagged";
         }
 

@@ -9,10 +9,21 @@ public class MoveToGoalAgent : Agent
 {
     [SerializeField] private Transform targetTransform;
     [SerializeField] private float speed;
+    [SerializeField] private Transform targetMin;
+    [SerializeField] private Transform targetMax;
+
+    [SerializeField] private MeshRenderer ground;
+    [SerializeField] private Material winMaterial;
+    [SerializeField] private Material looseMaterial;
 
     public override void OnEpisodeBegin()
     {
         transform.localPosition = new Vector3(0f, 0.5f, 0f);
+
+        Vector3 newPos = targetTransform.localPosition;
+        newPos.x = Random.Range(targetMin.localPosition.x, targetMax.localPosition.x);
+        newPos.z = Random.Range(targetMin.localPosition.z, targetMax.localPosition.z);
+        targetTransform.localPosition = newPos;
     }
 
     public override void CollectObservations(VectorSensor sensor)
@@ -40,11 +51,15 @@ public class MoveToGoalAgent : Agent
     {
         if (other.gameObject.CompareTag("Target"))
         {
+            ground.material = winMaterial;
+
             SetReward(+1f);
             EndEpisode();
         }
         else if (other.gameObject.CompareTag("Wall"))
         {
+            ground.material = looseMaterial;
+
             SetReward(-1f);
             EndEpisode();
         }

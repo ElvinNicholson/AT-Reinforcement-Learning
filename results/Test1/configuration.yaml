@@ -62,7 +62,7 @@ engine_settings:
   no_graphics: false
 environment_parameters: null
 checkpoint_settings:
-  run_id: Test2
+  run_id: Test1
   initialize_from: null
   load_model: false
   resume: false

@@ -14,10 +14,20 @@ public class Food : MonoBehaviour
 
     public void RandomizePos()
     {
-        Vector3 newPos = transform.position;
-        newPos.x = Random.Range(spawnMin.position.x, spawnMax.position.x);
-        newPos.z = Random.Range(spawnMin.position.z, spawnMax.position.z);
+        Vector3 pos = GetRandomPos();
+        while (Vector3.Distance(pos, transform.localPosition) < 1f)
+        {
+            pos = GetRandomPos();
+        }
 
-        transform.position = newPos;
+        transform.localPosition = pos;
+    }
+
+    private Vector3 GetRandomPos()
+    {
+        Vector3 newPos = transform.localPosition;
+        newPos.x = Random.Range(spawnMin.localPosition.x, spawnMax.localPosition.x);
+        newPos.z = Random.Range(spawnMin.localPosition.z, spawnMax.localPosition.z);
+        return newPos;
     }
 }
