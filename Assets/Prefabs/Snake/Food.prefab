@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7253168352187190815}
   - component: {fileID: 5276199597815415264}
   - component: {fileID: 4658413213654689247}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Leaf
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -118,7 +118,7 @@ GameObject:
   - component: {fileID: 7245532144080720069}
   - component: {fileID: 1637229541235588157}
   - component: {fileID: 3023283504143399006}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Food
   m_TagString: Target
   m_Icon: {fileID: 0}
@@ -135,7 +135,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0.5, z: 0}
-  m_LocalScale: {x: 0.75, y: 0.75, z: 0.75}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6467000074170734547}
@@ -239,7 +239,7 @@ GameObject:
   - component: {fileID: 909985936479061775}
   - component: {fileID: 7836278200721108549}
   - component: {fileID: 6372150055642324811}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Stalk
   m_TagString: Untagged
   m_Icon: {fileID: 0}

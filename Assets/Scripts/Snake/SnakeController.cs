@@ -1,8 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Unity.MLAgents;
+using Unity.MLAgents.Actuators;
+using Unity.MLAgents.Sensors;
 
-public class SnakeController : MonoBehaviour
+public class SnakeController : Agent
 {
     [SerializeField] private float moveSpeed;
     [SerializeField] private float turnSpeed;
@@ -14,20 +17,22 @@ public class SnakeController : MonoBehaviour
     private List<Vector3> posHistory = new List<Vector3>();
     private int maxListSize;
 
-    private void Start()
-    {
-        AddBodySegment();
-    }
+    [Header("ML-AGENTS")]
+    [SerializeField] private Food food;
+    private int turnDir;
 
     private void Update()
     {
         transform.localPosition += transform.forward * moveSpeed * Time.deltaTime;
-
-        float turnDir = Input.GetAxis("Horizontal");
         transform.Rotate(Vector3.up, turnDir * turnSpeed * Time.deltaTime);
 
         for (int i = 0; i < bodyParts.Count; i++)
         {
+            if (posHistory.Count == 0)
+            {
+                return;
+            }
+
             Vector3 movePos = posHistory[Mathf.Min(i * bodyGap, posHistory.Count - 1)];
             Vector3 moveDir = movePos - bodyParts[i].transform.localPosition;
             bodyParts[i].transform.localPosition += moveDir * moveSpeed * Time.deltaTime;
@@ -39,6 +44,38 @@ public class SnakeController : MonoBehaviour
     {
         posHistory.Insert(0, transform.localPosition);
         posHistory = posHistory.GetRange(0, Mathf.Min(maxListSize, posHistory.Count));
+
+        if (Physics.SphereCast(transform.position, 0.5f, transform.forward, out RaycastHit hit, 25f, LayerMask.GetMask("Detectable")))
+        {
+            if (hit.transform.CompareTag("Target"))
+            {
+                SetReward(0.01f);
+            }
+            else if (hit.transform.CompareTag("Wall") || hit.transform.CompareTag("Avoid"))
+            {
+                SetReward(-0.01f);
+            }
+        }
+    }
+
+    private void ResetGame()
+    {
+        foreach (GameObject body in bodyParts)
+        {
+            Destroy(body);
+        }
+
+        bodyParts.Clear();
+        posHistory.Clear();
+        turnDir = 0;
+
+        // Randomize spawn positions
+        float randomX = Random.Range(-5, 5);
+        float randomZ = Random.Range(-5, 5);
+        transform.localPosition = new Vector3(randomX, transform.localPosition.y, randomZ);
+        food.RandomizePos();
+
+        AddBodySegment();
     }
 
     private void AddBodySegment()
@@ -68,12 +105,65 @@ public class SnakeController : MonoBehaviour
         if (other.gameObject.CompareTag("Target"))
         {
             AddBodySegment();
-            other.GetComponent<Food>().RandomizePos();
+            food.RandomizePos();
+            SetReward(+1f);
         }
 
-        else if (other.gameObject.CompareTag("Snake Body"))
+        else if (other.gameObject.CompareTag("Avoid") || other.gameObject.CompareTag("Wall"))
         {
-            Debug.Log("Game Over");
+            SetReward(-5f);
+            EndEpisode();
         }
     }
+
+    #region ML-AGENTS
+
+    public override void OnEpisodeBegin()
+    {
+        ResetGame();
+    }
+
+    public override void CollectObservations(VectorSensor sensor)
+    {
+        sensor.AddObservation(transform.position);
+        sensor.AddObservation(food.transform.position);
+    }
+
+    public override void OnActionReceived(ActionBuffers actions)
+    {
+        switch (actions.DiscreteActions[0])
+        {
+            case 0:
+                turnDir = 0;
+                break;
+
+            case 1:
+                turnDir = 1;
+                break;
+
+            case 2:
+                turnDir = -1;
+                break;
+        }
+    }
+
+    public override void Heuristic(in ActionBuffers actionsOut)
+    {
+        float input = Input.GetAxis("Horizontal");
+        int action = 0;
+
+        if (input < 0)
+        {
+            action = 2;
+        }
+        else if (input > 0)
+        {
+            action = 1;
+        }
+
+        ActionSegment<int> discreteActions = actionsOut.DiscreteActions;
+        discreteActions[0] = action;
+    }
+
+#endregion
 }
