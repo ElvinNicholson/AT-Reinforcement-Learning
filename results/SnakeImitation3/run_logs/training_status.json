@@ -2,15 +2,6 @@
     "SnakeAgent": {
         "checkpoints": [
             {
-                "steps": 1410,
-                "file_path": "results\\SnakeImitation3\\SnakeAgent\\SnakeAgent-1410.onnx",
-                "reward": null,
-                "creation_time": 1710542544.1281695,
-                "auxillary_file_paths": [
-                    "results\\SnakeImitation3\\SnakeAgent\\SnakeAgent-1410.pt"
-                ]
-            },
-            {
                 "steps": 40930,
                 "file_path": "results\\SnakeImitation3\\SnakeAgent\\SnakeAgent-40930.onnx",
                 "reward": -5.0,
@@ -27,15 +18,42 @@
                 "auxillary_file_paths": [
                     "results\\SnakeImitation3\\SnakeAgent\\SnakeAgent-145933.pt"
                 ]
+            },
+            {
+                "steps": 148136,
+                "file_path": "results\\SnakeImitation3\\SnakeAgent\\SnakeAgent-148136.onnx",
+                "reward": null,
+                "creation_time": 1710602682.2418764,
+                "auxillary_file_paths": [
+                    "results\\SnakeImitation3\\SnakeAgent\\SnakeAgent-148136.pt"
+                ]
+            },
+            {
+                "steps": 149233,
+                "file_path": "results\\SnakeImitation3\\SnakeAgent\\SnakeAgent-149233.onnx",
+                "reward": null,
+                "creation_time": 1710602796.0187666,
+                "auxillary_file_paths": [
+                    "results\\SnakeImitation3\\SnakeAgent\\SnakeAgent-149233.pt"
+                ]
+            },
+            {
+                "steps": 346939,
+                "file_path": "results\\SnakeImitation3\\SnakeAgent\\SnakeAgent-346939.onnx",
+                "reward": null,
+                "creation_time": 1710615541.0890915,
+                "auxillary_file_paths": [
+                    "results\\SnakeImitation3\\SnakeAgent\\SnakeAgent-346939.pt"
+                ]
             }
         ],
         "final_checkpoint": {
-            "steps": 145933,
+            "steps": 346939,
             "file_path": "results\\SnakeImitation3\\SnakeAgent.onnx",
             "reward": null,
-            "creation_time": 1710549719.5141864,
+            "creation_time": 1710615541.0890915,
             "auxillary_file_paths": [
-                "results\\SnakeImitation3\\SnakeAgent\\SnakeAgent-145933.pt"
+                "results\\SnakeImitation3\\SnakeAgent\\SnakeAgent-346939.pt"
             ]
         }
     },

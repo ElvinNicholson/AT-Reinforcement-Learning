@@ -250,7 +250,7 @@ Light:
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 2
+    m_Type: 0
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
@@ -357,6 +357,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1229495906662842576, guid: a8d6e1afbd4f1bc45a3da680d2f1d839, type: 3}
+      propertyPath: m_SphereCastRadius
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 2032004814096651733, guid: a8d6e1afbd4f1bc45a3da680d2f1d839, type: 3}
       propertyPath: m_IsTrigger
       value: 1
@@ -387,7 +391,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7375310587278216586, guid: a8d6e1afbd4f1bc45a3da680d2f1d839, type: 3}
       propertyPath: MaxStep
-      value: 2000
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7606359873144814221, guid: a8d6e1afbd4f1bc45a3da680d2f1d839, type: 3}
       propertyPath: m_IsTrigger

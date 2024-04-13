@@ -45,15 +45,19 @@ public class SnakeController : Agent
         posHistory.Insert(0, transform.localPosition);
         posHistory = posHistory.GetRange(0, Mathf.Min(maxListSize, posHistory.Count));
 
-        if (Physics.SphereCast(transform.position, 0.5f, transform.forward, out RaycastHit hit, 25f, LayerMask.GetMask("Detectable")))
+        if (Physics.Raycast(transform.position, transform.forward, out RaycastHit hit, 25f, LayerMask.GetMask("Detectable")))
         {
             if (hit.transform.CompareTag("Target"))
             {
-                SetReward(0.01f);
+                SetReward(0.05f);
             }
-            else if (hit.transform.CompareTag("Wall") || hit.transform.CompareTag("Avoid"))
+            else if (hit.transform.CompareTag("Avoid"))
             {
-                SetReward(-0.01f);
+                SetReward(-0.1f);
+            }
+            else if (hit.transform.CompareTag("Wall"))
+            {
+                SetReward(-0.001f);
             }
         }
     }
