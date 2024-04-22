@@ -4,14 +4,10 @@ using UnityEngine;
 
 public class FlappyBird : MonoBehaviour
 {
-    [Header("References")]
-    [SerializeField] private GameObject bird;
-    [SerializeField] private GameObject pipes;
+    public int score;
 
-    [Header("Bird")]
-    [SerializeField] private float birdSpawnHeight;
-    [SerializeField] private float gravity;
-    [SerializeField] private float jump;
+    [Header("References")]
+    [SerializeField] private GameObject pipes;
 
     [Header("Pipes")]
     [SerializeField] private float pipeSpeed;
@@ -20,46 +16,28 @@ public class FlappyBird : MonoBehaviour
     [SerializeField] private float pipeSpawnMinHeight;
     [SerializeField] private float pipeSpawnMaxHeight;
 
-    private float verticalSpeed;
-
     private float pipeSpawnCountdown;
     private GameObject pipeParent;
     private int pipeCount;
 
     private void Start()
     {
-        pipeCount = 0;
-        verticalSpeed = 0;
-        pipeSpawnCountdown = 0;
-
-        Destroy(pipeParent);
-        pipeParent = new GameObject("PipesParent");
-        pipeParent.transform.parent = transform;
-
-        bird.transform.position = Vector3.up * birdSpawnHeight;
+        Reset();
     }
 
     private void Update()
     {
-        MoveBird();
-
         SpawnPipes();
 
-        pipeParent.transform.position += Vector3.left * pipeSpeed * Time.deltaTime;
-    }
+        pipeParent.transform.localPosition += Vector3.left * pipeSpeed * Time.deltaTime;
 
-    private void MoveBird()
-    {
-        verticalSpeed -= gravity * Time.deltaTime;
-
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (pipeParent.transform.childCount >= 5)
         {
-            verticalSpeed = 0;
-            verticalSpeed += jump;
+            Destroy(pipeParent.transform.GetChild(0).gameObject);
         }
-
-        bird.transform.position += Vector3.up * verticalSpeed * Time.deltaTime;
     }
+
+
 
     private void SpawnPipes()
     {
@@ -73,13 +51,19 @@ public class FlappyBird : MonoBehaviour
             GameObject newPipe = Instantiate(pipes);
             newPipe.transform.parent = pipeParent.transform;
             newPipe.transform.name = pipeCount.ToString();
-            newPipe.transform.position = pipeSpawnOffset;
+            newPipe.transform.position = transform.position + pipeSpawnOffset;
             newPipe.transform.position += Vector3.up * Random.Range(pipeSpawnMinHeight, pipeSpawnMaxHeight);
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+    public void Reset()
     {
-        Start();
+        score = 0;
+        pipeCount = 0;
+        pipeSpawnCountdown = 0;
+
+        Destroy(pipeParent);
+        pipeParent = new GameObject("PipesParent");
+        pipeParent.transform.parent = transform;
     }
 }

@@ -357,49 +357,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1229495906662842576, guid: a8d6e1afbd4f1bc45a3da680d2f1d839, type: 3}
-      propertyPath: m_SphereCastRadius
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2032004814096651733, guid: a8d6e1afbd4f1bc45a3da680d2f1d839, type: 3}
-      propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4834141539941184901, guid: a8d6e1afbd4f1bc45a3da680d2f1d839, type: 3}
       propertyPath: m_Name
       value: Snake Game
-      objectReference: {fileID: 0}
-    - target: {fileID: 5335163182961374199, guid: a8d6e1afbd4f1bc45a3da680d2f1d839, type: 3}
-      propertyPath: m_Model
-      value: 
-      objectReference: {fileID: 5022602860645237092, guid: a643615fe7c2b4143b135e08ff3c77e4, type: 3}
-    - target: {fileID: 5335163182961374199, guid: a8d6e1afbd4f1bc45a3da680d2f1d839, type: 3}
-      propertyPath: m_BehaviorType
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5825761963055925089, guid: a8d6e1afbd4f1bc45a3da680d2f1d839, type: 3}
-      propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6130605577890338631, guid: a8d6e1afbd4f1bc45a3da680d2f1d839, type: 3}
-      propertyPath: Record
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6130605577890338631, guid: a8d6e1afbd4f1bc45a3da680d2f1d839, type: 3}
-      propertyPath: DemonstrationName
-      value: SnakeDemo2
-      objectReference: {fileID: 0}
-    - target: {fileID: 7375310587278216586, guid: a8d6e1afbd4f1bc45a3da680d2f1d839, type: 3}
-      propertyPath: MaxStep
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7606359873144814221, guid: a8d6e1afbd4f1bc45a3da680d2f1d839, type: 3}
-      propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8685263847632717277, guid: a8d6e1afbd4f1bc45a3da680d2f1d839, type: 3}
-      propertyPath: m_IsTrigger
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

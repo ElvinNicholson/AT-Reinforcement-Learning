@@ -21,6 +21,8 @@ public class SnakeController : Agent
     [SerializeField] private Food food;
     private int turnDir;
 
+    private Vector3 lastPos;
+
     private void Update()
     {
         transform.localPosition += transform.forward * moveSpeed * Time.deltaTime;
@@ -129,8 +131,25 @@ public class SnakeController : Agent
 
     public override void CollectObservations(VectorSensor sensor)
     {
+        // Current Vec3 Pos
         sensor.AddObservation(transform.position);
+
+        // Food Vec3 Pos
         sensor.AddObservation(food.transform.position);
+
+        // X Velocity
+        float vel_X = (transform.position.x - lastPos.x) / Time.deltaTime;
+        sensor.AddObservation(vel_X);
+
+        // Z Velocity
+        float vel_Z = (transform.position.z - lastPos.z) / Time.deltaTime;
+        sensor.AddObservation(vel_Z);
+
+        lastPos = transform.position;
+
+        // Distance to Food
+        float distToFood = (Vector3.Distance(transform.position, food.transform.position));
+        sensor.AddObservation(distToFood);
     }
 
     public override void OnActionReceived(ActionBuffers actions)

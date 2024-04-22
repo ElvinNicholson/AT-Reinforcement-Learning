@@ -1,0 +1,47 @@
+{
+    "BirdAgent": {
+        "checkpoints": [
+            {
+                "steps": 455711,
+                "file_path": "results\\NewBirdAgent6\\BirdAgent\\BirdAgent-455711.onnx",
+                "reward": -3.9014546047557483,
+                "creation_time": 1713817255.9607286,
+                "auxillary_file_paths": [
+                    "results\\NewBirdAgent6\\BirdAgent\\BirdAgent-455711.pt"
+                ]
+            },
+            {
+                "steps": 499964,
+                "file_path": "results\\NewBirdAgent6\\BirdAgent\\BirdAgent-499964.onnx",
+                "reward": -2.2644187177336494,
+                "creation_time": 1713817578.4695868,
+                "auxillary_file_paths": [
+                    "results\\NewBirdAgent6\\BirdAgent\\BirdAgent-499964.pt"
+                ]
+            },
+            {
+                "steps": 500013,
+                "file_path": "results\\NewBirdAgent6\\BirdAgent\\BirdAgent-500013.onnx",
+                "reward": -2.271264481133428,
+                "creation_time": 1713817578.5166383,
+                "auxillary_file_paths": [
+                    "results\\NewBirdAgent6\\BirdAgent\\BirdAgent-500013.pt"
+                ]
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 500013,
+            "file_path": "results\\NewBirdAgent6\\BirdAgent.onnx",
+            "reward": -2.271264481133428,
+            "creation_time": 1713817578.5166383,
+            "auxillary_file_paths": [
+                "results\\NewBirdAgent6\\BirdAgent\\BirdAgent-500013.pt"
+            ]
+        }
+    },
+    "metadata": {
+        "stats_format_version": "0.3.0",
+        "mlagents_version": "0.29.0",
+        "torch_version": "1.7.0+cu110"
+    }
+}

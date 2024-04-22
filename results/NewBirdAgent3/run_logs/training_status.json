@@ -1,0 +1,29 @@
+{
+    "BirdAgent": {
+        "checkpoints": [
+            {
+                "steps": 149433,
+                "file_path": "results\\NewBirdAgent3\\BirdAgent\\BirdAgent-149433.onnx",
+                "reward": null,
+                "creation_time": 1713810835.563549,
+                "auxillary_file_paths": [
+                    "results\\NewBirdAgent3\\BirdAgent\\BirdAgent-149433.pt"
+                ]
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 149433,
+            "file_path": "results\\NewBirdAgent3\\BirdAgent.onnx",
+            "reward": null,
+            "creation_time": 1713810835.563549,
+            "auxillary_file_paths": [
+                "results\\NewBirdAgent3\\BirdAgent\\BirdAgent-149433.pt"
+            ]
+        }
+    },
+    "metadata": {
+        "stats_format_version": "0.3.0",
+        "mlagents_version": "0.29.0",
+        "torch_version": "1.7.0+cu110"
+    }
+}

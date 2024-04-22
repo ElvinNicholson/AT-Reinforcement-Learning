@@ -626,7 +626,7 @@ PrefabInstance:
       objectReference: {fileID: 8638542534969197440}
     - target: {fileID: 1350188592419966148, guid: 1911cba1483644943b1f1d8687a209f4, type: 3}
       propertyPath: MaxStep
-      value: 2000
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1350188592419966148, guid: 1911cba1483644943b1f1d8687a209f4, type: 3}
       propertyPath: bodyParent
@@ -637,8 +637,12 @@ PrefabInstance:
       value: SnakeAgent
       objectReference: {fileID: 0}
     - target: {fileID: 4534216756121105081, guid: 1911cba1483644943b1f1d8687a209f4, type: 3}
+      propertyPath: m_BehaviorType
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4534216756121105081, guid: 1911cba1483644943b1f1d8687a209f4, type: 3}
       propertyPath: m_BrainParameters.VectorObservationSize
-      value: 6
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 4534216756121105081, guid: 1911cba1483644943b1f1d8687a209f4, type: 3}
       propertyPath: m_BrainParameters.VectorActionSize.Array.size
@@ -720,7 +724,7 @@ MonoBehaviour:
   - Avoid
   m_RaysPerDirection: 5
   m_MaxRayDegrees: 70
-  m_SphereCastRadius: 1
+  m_SphereCastRadius: 0.5
   m_RayLength: 25
   m_RayLayerMask:
     serializedVersion: 2
@@ -744,7 +748,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Record: 0
   NumStepsToRecord: 0
-  DemonstrationName: SnakeDemo
+  DemonstrationName: SnakeDemo2
   DemonstrationDirectory: demos
 --- !u!4 &8480932696809215829 stripped
 Transform:

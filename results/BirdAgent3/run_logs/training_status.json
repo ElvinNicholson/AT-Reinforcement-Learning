@@ -1,0 +1,38 @@
+{
+    "BirdAgent": {
+        "checkpoints": [
+            {
+                "steps": 90704,
+                "file_path": "results\\BirdAgent3\\BirdAgent\\BirdAgent-90704.onnx",
+                "reward": -1.0,
+                "creation_time": 1713127030.5542572,
+                "auxillary_file_paths": [
+                    "results\\BirdAgent3\\BirdAgent\\BirdAgent-90704.pt"
+                ]
+            },
+            {
+                "steps": 92641,
+                "file_path": "results\\BirdAgent3\\BirdAgent\\BirdAgent-92641.onnx",
+                "reward": -1.0,
+                "creation_time": 1713127734.6208553,
+                "auxillary_file_paths": [
+                    "results\\BirdAgent3\\BirdAgent\\BirdAgent-92641.pt"
+                ]
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 92641,
+            "file_path": "results\\BirdAgent3\\BirdAgent.onnx",
+            "reward": -1.0,
+            "creation_time": 1713127734.6208553,
+            "auxillary_file_paths": [
+                "results\\BirdAgent3\\BirdAgent\\BirdAgent-92641.pt"
+            ]
+        }
+    },
+    "metadata": {
+        "stats_format_version": "0.3.0",
+        "mlagents_version": "0.29.0",
+        "torch_version": "1.7.0+cu110"
+    }
+}
