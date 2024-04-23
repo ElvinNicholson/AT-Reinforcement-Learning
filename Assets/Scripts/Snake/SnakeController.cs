@@ -23,6 +23,13 @@ public class SnakeController : Agent
 
     private Vector3 lastPos;
 
+    [SerializeField] private float deathTimer;
+    private float deathCountdown;
+
+    [SerializeField] private float passiveRewardRate;
+    [SerializeField] private float pickedUpFoodTimer;
+    private float pickedUpFoodCountdown;
+
     private void Update()
     {
         transform.localPosition += transform.forward * moveSpeed * Time.deltaTime;
@@ -36,31 +43,41 @@ public class SnakeController : Agent
             }
 
             Vector3 movePos = posHistory[Mathf.Min(i * bodyGap, posHistory.Count - 1)];
-            Vector3 moveDir = movePos - bodyParts[i].transform.localPosition;
+            Vector3 moveDir = movePos - bodyParts[i].transform.position;
             bodyParts[i].transform.localPosition += moveDir * moveSpeed * Time.deltaTime;
             bodyParts[i].transform.LookAt(movePos);
+        }
+
+        DeathCountdown();
+
+        pickedUpFoodCountdown -= Time.deltaTime;
+    }
+
+    private void DeathCountdown()
+    {
+        if (deathCountdown > 0)
+        {
+            deathCountdown -= Time.deltaTime;
+
+            if (deathCountdown <= 0)
+            {
+                EndEpisode();
+            }
         }
     }
 
     private void FixedUpdate()
     {
-        posHistory.Insert(0, transform.localPosition);
+        posHistory.Insert(0, transform.position);
         posHistory = posHistory.GetRange(0, Mathf.Min(maxListSize, posHistory.Count));
 
-        if (Physics.Raycast(transform.position, transform.forward, out RaycastHit hit, 25f, LayerMask.GetMask("Detectable")))
+        if (pickedUpFoodCountdown > 0)
         {
-            if (hit.transform.CompareTag("Target"))
-            {
-                SetReward(0.05f);
-            }
-            else if (hit.transform.CompareTag("Avoid"))
-            {
-                SetReward(-0.1f);
-            }
-            else if (hit.transform.CompareTag("Wall"))
-            {
-                SetReward(-0.001f);
-            }
+            AddReward(passiveRewardRate);
+        }
+        else
+        {
+            AddReward(-passiveRewardRate);
         }
     }
 
@@ -74,6 +91,7 @@ public class SnakeController : Agent
         bodyParts.Clear();
         posHistory.Clear();
         turnDir = 0;
+        deathCountdown = 0;
 
         // Randomize spawn positions
         float randomX = Random.Range(-5, 5);
@@ -90,15 +108,14 @@ public class SnakeController : Agent
 
         if (bodyParts.Count > 0)
         {
-            body.transform.localPosition = bodyParts[bodyParts.Count - 1].transform.localPosition;
+            body.transform.position = bodyParts[bodyParts.Count - 1].transform.position;
         }
         else
         {
             // First segment
-            body.transform.localPosition = transform.localPosition;
+            body.transform.position = transform.position;
             body.transform.tag = "Untagged";
         }
-
 
         body.transform.parent = bodyParent;
 
@@ -112,13 +129,30 @@ public class SnakeController : Agent
         {
             AddBodySegment();
             food.RandomizePos();
-            SetReward(+1f);
+            
+            if (deathCountdown == 0)
+            {
+                SetReward(1f);
+                pickedUpFoodCountdown = pickedUpFoodTimer;
+            }
         }
 
         else if (other.gameObject.CompareTag("Avoid") || other.gameObject.CompareTag("Wall"))
         {
             SetReward(-5f);
-            EndEpisode();
+            
+            if (deathCountdown == 0)
+            {
+                deathCountdown = deathTimer;
+            }
+        }
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.gameObject.CompareTag("Avoid") || other.gameObject.CompareTag("Wall"))
+        {
+            SetReward(-1f);
         }
     }
 
@@ -132,10 +166,10 @@ public class SnakeController : Agent
     public override void CollectObservations(VectorSensor sensor)
     {
         // Current Vec3 Pos
-        sensor.AddObservation(transform.position);
+        sensor.AddObservation(transform.localPosition);
 
         // Food Vec3 Pos
-        sensor.AddObservation(food.transform.position);
+        sensor.AddObservation(food.transform.localPosition);
 
         // X Velocity
         float vel_X = (transform.position.x - lastPos.x) / Time.deltaTime;

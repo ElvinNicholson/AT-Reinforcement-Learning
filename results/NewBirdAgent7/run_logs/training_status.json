@@ -2,42 +2,6 @@
     "BirdAgent": {
         "checkpoints": [
             {
-                "steps": 500092,
-                "file_path": "results\\NewBirdAgent7\\BirdAgent\\BirdAgent-500092.onnx",
-                "reward": 19.539581395685673,
-                "creation_time": 1713819557.9341748,
-                "auxillary_file_paths": [
-                    "results\\NewBirdAgent7\\BirdAgent\\BirdAgent-500092.pt"
-                ]
-            },
-            {
-                "steps": 531834,
-                "file_path": "results\\NewBirdAgent7\\BirdAgent\\BirdAgent-531834.onnx",
-                "reward": 10.989999334017435,
-                "creation_time": 1713819834.562224,
-                "auxillary_file_paths": [
-                    "results\\NewBirdAgent7\\BirdAgent\\BirdAgent-531834.pt"
-                ]
-            },
-            {
-                "steps": 999960,
-                "file_path": "results\\NewBirdAgent7\\BirdAgent\\BirdAgent-999960.onnx",
-                "reward": 4.88362271198328,
-                "creation_time": 1713821421.3049135,
-                "auxillary_file_paths": [
-                    "results\\NewBirdAgent7\\BirdAgent\\BirdAgent-999960.pt"
-                ]
-            },
-            {
-                "steps": 1000016,
-                "file_path": "results\\NewBirdAgent7\\BirdAgent\\BirdAgent-1000016.onnx",
-                "reward": 4.859713813236781,
-                "creation_time": 1713821421.3519247,
-                "auxillary_file_paths": [
-                    "results\\NewBirdAgent7\\BirdAgent\\BirdAgent-1000016.pt"
-                ]
-            },
-            {
                 "steps": 1340298,
                 "file_path": "results\\NewBirdAgent7\\BirdAgent\\BirdAgent-1340298.onnx",
                 "reward": 4.09499969581763,
@@ -45,15 +9,51 @@
                 "auxillary_file_paths": [
                     "results\\NewBirdAgent7\\BirdAgent\\BirdAgent-1340298.pt"
                 ]
+            },
+            {
+                "steps": 1499977,
+                "file_path": "results\\NewBirdAgent7\\BirdAgent\\BirdAgent-1499977.onnx",
+                "reward": 8.629229832154055,
+                "creation_time": 1713889571.4892323,
+                "auxillary_file_paths": [
+                    "results\\NewBirdAgent7\\BirdAgent\\BirdAgent-1499977.pt"
+                ]
+            },
+            {
+                "steps": 1500041,
+                "file_path": "results\\NewBirdAgent7\\BirdAgent\\BirdAgent-1500041.onnx",
+                "reward": 8.629229832154055,
+                "creation_time": 1713889571.5372496,
+                "auxillary_file_paths": [
+                    "results\\NewBirdAgent7\\BirdAgent\\BirdAgent-1500041.pt"
+                ]
+            },
+            {
+                "steps": 1999951,
+                "file_path": "results\\NewBirdAgent7\\BirdAgent\\BirdAgent-1999951.onnx",
+                "reward": 9.368244688239013,
+                "creation_time": 1713891390.55735,
+                "auxillary_file_paths": [
+                    "results\\NewBirdAgent7\\BirdAgent\\BirdAgent-1999951.pt"
+                ]
+            },
+            {
+                "steps": 2000006,
+                "file_path": "results\\NewBirdAgent7\\BirdAgent\\BirdAgent-2000006.onnx",
+                "reward": 9.243274950261775,
+                "creation_time": 1713891390.605833,
+                "auxillary_file_paths": [
+                    "results\\NewBirdAgent7\\BirdAgent\\BirdAgent-2000006.pt"
+                ]
             }
         ],
         "final_checkpoint": {
-            "steps": 1340298,
+            "steps": 2000006,
             "file_path": "results\\NewBirdAgent7\\BirdAgent.onnx",
-            "reward": 4.09499969581763,
-            "creation_time": 1713822669.2034614,
+            "reward": 9.243274950261775,
+            "creation_time": 1713891390.605833,
             "auxillary_file_paths": [
-                "results\\NewBirdAgent7\\BirdAgent\\BirdAgent-1340298.pt"
+                "results\\NewBirdAgent7\\BirdAgent\\BirdAgent-2000006.pt"
             ]
         }
     },

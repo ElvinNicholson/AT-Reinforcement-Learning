@@ -1493,6 +1493,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Flappy Bird (10)
       objectReference: {fileID: 0}
+    - target: {fileID: 4227179594033842919, guid: 44b28cb414c6ffe4cb1b947bc2291224, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1907,7 +1911,7 @@ PrefabInstance:
     - target: {fileID: 4156963851558809129, guid: 44b28cb414c6ffe4cb1b947bc2291224, type: 3}
       propertyPath: m_Model
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 5022602860645237092, guid: 77c9f2105ae1e9b4dae2ea8b6c889a26, type: 3}
     - target: {fileID: 4156963851558809129, guid: 44b28cb414c6ffe4cb1b947bc2291224, type: 3}
       propertyPath: m_BehaviorType
       value: 0
