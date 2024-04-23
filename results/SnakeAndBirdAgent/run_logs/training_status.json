@@ -1,0 +1,65 @@
+{
+    "SnakeAndBirdAgent": {
+        "checkpoints": [
+            {
+                "steps": 1000037,
+                "file_path": "results\\SnakeAndBirdAgent\\SnakeAndBirdAgent\\SnakeAndBirdAgent-1000037.onnx",
+                "reward": 0.6811191833286143,
+                "creation_time": 1713910796.5300183,
+                "auxillary_file_paths": [
+                    "results\\SnakeAndBirdAgent\\SnakeAndBirdAgent\\SnakeAndBirdAgent-1000037.pt"
+                ]
+            },
+            {
+                "steps": 1499945,
+                "file_path": "results\\SnakeAndBirdAgent\\SnakeAndBirdAgent\\SnakeAndBirdAgent-1499945.onnx",
+                "reward": 27.469998564571142,
+                "creation_time": 1713912356.2489734,
+                "auxillary_file_paths": [
+                    "results\\SnakeAndBirdAgent\\SnakeAndBirdAgent\\SnakeAndBirdAgent-1499945.pt"
+                ]
+            },
+            {
+                "steps": 1500009,
+                "file_path": "results\\SnakeAndBirdAgent\\SnakeAndBirdAgent\\SnakeAndBirdAgent-1500009.onnx",
+                "reward": 27.469998564571142,
+                "creation_time": 1713912356.2960184,
+                "auxillary_file_paths": [
+                    "results\\SnakeAndBirdAgent\\SnakeAndBirdAgent\\SnakeAndBirdAgent-1500009.pt"
+                ]
+            },
+            {
+                "steps": 1999981,
+                "file_path": "results\\SnakeAndBirdAgent\\SnakeAndBirdAgent\\SnakeAndBirdAgent-1999981.onnx",
+                "reward": 4.178084635354103,
+                "creation_time": 1713913911.0289311,
+                "auxillary_file_paths": [
+                    "results\\SnakeAndBirdAgent\\SnakeAndBirdAgent\\SnakeAndBirdAgent-1999981.pt"
+                ]
+            },
+            {
+                "steps": 2000035,
+                "file_path": "results\\SnakeAndBirdAgent\\SnakeAndBirdAgent\\SnakeAndBirdAgent-2000035.onnx",
+                "reward": 4.135367952522478,
+                "creation_time": 1713913911.0745707,
+                "auxillary_file_paths": [
+                    "results\\SnakeAndBirdAgent\\SnakeAndBirdAgent\\SnakeAndBirdAgent-2000035.pt"
+                ]
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 2000035,
+            "file_path": "results\\SnakeAndBirdAgent\\SnakeAndBirdAgent.onnx",
+            "reward": 4.135367952522478,
+            "creation_time": 1713913911.0745707,
+            "auxillary_file_paths": [
+                "results\\SnakeAndBirdAgent\\SnakeAndBirdAgent\\SnakeAndBirdAgent-2000035.pt"
+            ]
+        }
+    },
+    "metadata": {
+        "stats_format_version": "0.3.0",
+        "mlagents_version": "0.29.0",
+        "torch_version": "1.7.0+cu110"
+    }
+}
