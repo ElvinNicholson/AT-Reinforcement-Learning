@@ -646,7 +646,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4534216756121105081, guid: 1911cba1483644943b1f1d8687a209f4, type: 3}
       propertyPath: m_BehaviorName
-      value: SnakeAndBirdAgent
+      value: SnakeWithBirdAgent
       objectReference: {fileID: 0}
     - target: {fileID: 4534216756121105081, guid: 1911cba1483644943b1f1d8687a209f4, type: 3}
       propertyPath: m_BehaviorType
