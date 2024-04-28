@@ -360,7 +360,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4834141539941184901, guid: a8d6e1afbd4f1bc45a3da680d2f1d839, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5335163182961374199, guid: a8d6e1afbd4f1bc45a3da680d2f1d839, type: 3}
       propertyPath: m_Model
@@ -1668,15 +1668,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4834141539941184901, guid: a8d6e1afbd4f1bc45a3da680d2f1d839, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5335163182961374199, guid: a8d6e1afbd4f1bc45a3da680d2f1d839, type: 3}
       propertyPath: m_Model
       value: 
+      objectReference: {fileID: 5022602860645237092, guid: a643615fe7c2b4143b135e08ff3c77e4, type: 3}
+    - target: {fileID: 5335163182961374199, guid: a8d6e1afbd4f1bc45a3da680d2f1d839, type: 3}
+      propertyPath: m_BehaviorName
+      value: SnakeAgent
       objectReference: {fileID: 0}
     - target: {fileID: 5335163182961374199, guid: a8d6e1afbd4f1bc45a3da680d2f1d839, type: 3}
       propertyPath: m_BehaviorType
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -110,9 +110,12 @@ public class BirdAgent : Agent
 
             score++;
 
-            if (int.Parse(scoreboard.text) < score)
+            if (scoreboard != null)
             {
-                scoreboard.text = score.ToString();
+                if (int.Parse(scoreboard.text) < score)
+                {
+                    scoreboard.text = score.ToString();
+                }
             }
 
             if (deathCountdown == 0)
